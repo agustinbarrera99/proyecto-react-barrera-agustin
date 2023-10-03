@@ -23,10 +23,10 @@ return (
             navbarScroll
         >
             <NavDropdown title="productos" className='categoria' id="dropdown-basic">
-            <NavDropdown.Item href="#action3">Todos los productos</NavDropdown.Item>
-            <NavDropdown.Item href="#action3">Notebooks</NavDropdown.Item>
-            <NavDropdown.Item href="#action3">Accesorios</NavDropdown.Item>
-            <NavDropdown.Item href="#action4">Celulares y tablets</NavDropdown.Item>
+            <NavDropdown.Item href="#Todos los productos">Todos los productos</NavDropdown.Item>
+            <NavDropdown.Item href="#Notebooks">Notebooks</NavDropdown.Item>
+            <NavDropdown.Item href="#Accesorios">Accesorios</NavDropdown.Item>
+            <NavDropdown.Item href="#Celulares y tablets">Celulares y tablets</NavDropdown.Item>
             </NavDropdown>
         </Nav>
         <Form className="d-flex">
