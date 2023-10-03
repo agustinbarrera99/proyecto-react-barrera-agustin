@@ -1,0 +1,13 @@
+.botonCarrito {
+    width: auto;
+    padding: auto;
+}
+
+.iconoCarrito {
+    color: rgb(0, 0, 0);
+}
+
+.numerito {
+    color: rgb(0, 0, 0);
+    margin-left: .3125rem;
+}
