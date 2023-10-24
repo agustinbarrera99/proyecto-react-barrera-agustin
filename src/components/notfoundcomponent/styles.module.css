@@ -1,0 +1,41 @@
+.notFoundContainer {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+padding: 2rem;
+}
+
+.notFoundImage img {
+max-width: 100%;
+height: auto;
+margin-bottom: 1rem;
+}
+
+.notFoundTitle {
+font-size: 2rem;
+font-weight: bold;
+color: #ff6600; /* Color de título personalizado */
+margin-bottom: 1rem;
+}
+
+.notFoundMessage {
+font-size: 1.25rem;
+color: #777; /* Color de mensaje personalizado */
+margin-bottom: 2rem;
+}
+
+.buttonStyle {
+display: inline-block;
+padding: 10px 20px;
+background-color: #ff6600; /* Color de fondo personalizado */
+color: #fff; /* Color de texto en blanco */
+font-weight: bold;
+text-decoration: none;
+border-radius: 8px;
+transition: background-color 0.3s ease;
+}
+
+.buttonStyle:hover {
+    background-color: #ca6522; /* Cambio de color al hacer hover */
+}
