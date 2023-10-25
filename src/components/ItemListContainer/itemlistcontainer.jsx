@@ -29,14 +29,14 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     fetchData();
-    setCategoria(categoryId ? categoryId : 'Todos los productos');
+    setCategoria(categoryId);
   }, [categoryId]);
 
   if (loading) return <Spinner />;
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.categoryTitle}>{categoryId ? categoryId : "Productos"}</h2>
+      <h2 className={styles.categoryTitle}>{categoryId ? categoryId : "todos los productos"}</h2>
       <div className={styles.containerItems}>
       {products.filter(producto => !categoryId || producto.category === categoryId).map((pr, index) => <Item producto={pr} key={index} />)}
       </div>

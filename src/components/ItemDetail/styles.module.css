@@ -1,0 +1,64 @@
+.card {
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    }
+    
+    .cardImagen {
+    flex: 1;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    margin-right: 1rem;
+    }
+    
+    .cardDetailles {
+    flex: 2;
+    }
+    
+    .titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    }
+    
+    .descripcion {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    }
+    
+    .precio {
+    font-size: 1.25rem;
+    color: #f6830f;
+    font-weight: 600;
+    }
+    
+    .boton {
+    display: inline-block;
+    background-color: #f6830f;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+    
+    .boton:hover {
+        background-color: #d56108;
+    }
+    
+    .acciones {
+        display: flex;
+        margin-top: .625rem;
+        gap: 1.25rem;
+        justify-content: space-between;
+    }
