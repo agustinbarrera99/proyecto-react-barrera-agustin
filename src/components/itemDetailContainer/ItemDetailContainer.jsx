@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
             {loading ? (
             <Spinner />
             ) : (
-            <ItemDetail producto={producto} loading={loading}/>
+            <ItemDetail producto={producto}/>
         )}
         </div>
     );
