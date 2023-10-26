@@ -4,6 +4,7 @@ import Contador from "../contador/Contador";
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({producto, loading}) => {
+    
     return (
         <div>
             {loading ? (

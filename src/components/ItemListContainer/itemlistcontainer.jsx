@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Item from '../Item/Item';
-import Spinner from '../customspinner/CustomSpinner';
+import Loader from '../loader/loader';
 import styles from './styles.module.css'
 
 const ItemListContainer = () => {
   const { categoryId } = useParams();
-  const [products, setProducts] = useState([]);
+  const [products, setProducto] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoria, setCategoria] = useState('Productos');
 
@@ -19,8 +19,8 @@ const ItemListContainer = () => {
         throw new Error('Network response was not ok');
       }
 
-      const json = await response.json();
-      setProducts(json);
+      const data = await response.json();
+      setProducto(data);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -32,7 +32,7 @@ const ItemListContainer = () => {
     setCategoria(categoryId);
   }, [categoryId]);
 
-  if (loading) return <Spinner />;
+  if (loading) return <Loader />;
 
   return (
     <div className={styles.container}>

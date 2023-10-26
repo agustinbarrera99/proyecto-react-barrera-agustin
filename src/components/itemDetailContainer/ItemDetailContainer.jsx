@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Spinner from "../customspinner/CustomSpinner";
+import Loader from "../loader/loader";
 import ItemDetail from "../ItemDetail/ItemDetail"; 
 
 const ItemDetailContainer = () => {
@@ -29,7 +29,7 @@ const ItemDetailContainer = () => {
     return (
         <div>
             {loading ? (
-            <Spinner />
+            <Loader loading={loading}/>
             ) : (
             <ItemDetail producto={producto}/>
         )}
