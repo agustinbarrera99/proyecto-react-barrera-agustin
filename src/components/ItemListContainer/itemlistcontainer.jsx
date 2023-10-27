@@ -32,6 +32,10 @@ const ItemListContainer = () => {
     setCategoria(categoryId);
   }, [categoryId]);
 
+  const productosFiltrados = categoria
+    ? productos.filter((producto) => producto.category === categoria)
+    : productos;
+
   if (loading) return <Loader />;
 
   return (
@@ -40,7 +44,7 @@ const ItemListContainer = () => {
         {categoryId ? categoryId : 'todos los productos'}
       </h2>
       <div className={styles.containerItems}>
-        <ItemList productos={productos} />
+        <ItemList productos={productosFiltrados} />
       </div>
     </div>
   );
