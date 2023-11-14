@@ -2,16 +2,14 @@ import React from 'react';
 import Item from '../Item/Item';
 import styles from './styles.module.css'
 
-const ItemList = ({ productos }) => {
+const ItemList = ({ products }) => {
     return (
         <div className={styles.gridContainer}>
-        {productos.length > 0 ? (
-            productos.map((producto) => (
-            <Item key={producto.id} producto={producto} />
-        ))
-        ) : (
-            <p>No se encontraron productos.</p>
-        )}
+            {Array.isArray(products) && products.length > 0 && (
+                products.map((product) => (
+                    <Item key={product.id} producto={product} />
+                ))
+            )}
         </div>
     );
 };

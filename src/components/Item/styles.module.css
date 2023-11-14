@@ -1,17 +1,17 @@
 .card {
     border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
+    height: auto;
     overflow: hidden;
-    height: 31.25rem;
 }
 
 .imagenContainer {
     width: 100%;
-    padding-bottom: 65%;
+    padding-bottom: 100%;
     position: relative;
     overflow: hidden;
 }
@@ -23,6 +23,11 @@
     position: absolute;
     top: 0;
     left: 0;
+    transition: transform 0.3s ease;
+}
+
+.cardImagen:hover {
+    transform: scale(1.05);
 }
 
 .cardBody {
@@ -58,6 +63,8 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 100%;
+    margin-top: auto; 
+    margin-bottom: 1rem;
 }
 
 .botones:hover {

@@ -1,10 +1,10 @@
-import Contador from '../contador/Contador';
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
 
 const Item = ({ producto }) => {
+
   return (
-    <div className={styles.container}>
+    <div className={styles.card}>
       <div key={producto.id} className={styles.card}>
         <div className={styles.imagenContainer}>
           <img
@@ -16,9 +16,8 @@ const Item = ({ producto }) => {
         <div className={styles.cardBody}>
           <h2 className={styles.titulo}>{producto.title}</h2>
           <p className={styles.precio}>${producto.price}</p>
-          <Contador />
-          <Link to={`/item/${producto.id}`} className={styles.botones}>
-            Detalles
+          <Link to={`/item/${producto.id}`} className="Link">
+            ver mas
           </Link>
         </div>
       </div>

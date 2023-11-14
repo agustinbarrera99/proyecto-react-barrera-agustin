@@ -1,40 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/client";
 import Loader from "../loader/loader";
-import ItemDetail from "../ItemDetail/ItemDetail"; 
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
-    const [producto, setProducto] = useState();
+    const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const fetchData = async () => {
-    try {
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-        if (!response.ok) {
-        throw new Error("Network response was not ok");
-}
-    const data = await response.json();
-    setProducto(data);
-    setLoading(false);
-    } catch (error) {
-        console.error(error);
-    }
-    };
-
     useEffect(() => {
-        fetchData();
+        const docRef = doc(db, 'products', id);
+
+        getDoc(docRef)
+            .then((resp) => {
+                if (resp.exists()) {
+                    setProduct({ ...resp.data(), id: resp.id });
+                }
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, [id]);
 
-    return (
-        <div>
-            {loading ? (
-            <Loader loading={loading}/>
-            ) : (
-            <ItemDetail producto={producto}/>
-        )}
-        </div>
-    );
+    if (loading) {
+        return <Loader loading={loading} />;
+    }
+    return product ? <ItemDetail product={product} /> : <h3>Ups.. este producto no existe</h3>;
 };
 
-export default ItemDetailContainer;
+export default ItemDetailContainer; 
