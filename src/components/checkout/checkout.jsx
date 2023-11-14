@@ -69,7 +69,7 @@ const Checkout = () => {
         }
         return (
             <div>
-                <h3>Orden generada con éxito, el ID de su orden es: {orderInfo.orderId}</h3>
+                <h3>Orden generada con éxito, el ID de su orden es: {orderInfo.orderId}. Gracoas por su compra</h3>
                 <Link to="/" className="Link">
                     Volver al Inicio
                 </Link>

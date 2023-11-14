@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/client";
@@ -27,7 +27,11 @@ const ItemDetailContainer = () => {
     if (loading) {
         return <Loader loading={loading} />;
     }
-    return product ? <ItemDetail product={product} /> : <h3>Ups.. este producto no existe</h3>;
+    return product ? <ItemDetail product={product} /> : 
+    <div>
+        <h3>Ups.. este producto no existe</h3>
+        <Link className="Link" to="/">volver al inicio</Link>
+    </div>
 };
 
 export default ItemDetailContainer; 

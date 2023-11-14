@@ -48,7 +48,7 @@ const ItemListContainer = () => {
         {products.length === 0 && !loading && (
           <div>
             <h3>parece que la categoria no existe</h3>
-            <Link to="/"> volver al inicio</Link>
+            <Link className='Link' to="/"> volver al inicio</Link>
           </div>
 
         )}
