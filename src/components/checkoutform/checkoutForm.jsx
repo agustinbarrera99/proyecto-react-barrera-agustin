@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
 
+
 const CheckoutForm = ({ formData, validationErrors, orderAttempted, handleChange, handleSubmit, orderInfo }) => {
     const renderOrderInfo = () => {
         if (!orderInfo) {
             return null;
         }
+
         return (
             <div>
                 <h3>Orden generada con éxito, el ID de su orden es: {orderInfo.orderId}. Gracias por su compra</h3>
