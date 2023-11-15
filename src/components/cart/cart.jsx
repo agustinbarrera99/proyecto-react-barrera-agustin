@@ -13,7 +13,7 @@ const Cart = () => {
 
     return (
         <div className={styles.container}>
-            <h3>Carrito de Compras</h3>
+            <h3>Carrito</h3>
             <div className={styles.productList}>
                 {cart.map((prod) => (
                     <CartItem key={prod.id} product={prod} />
@@ -30,7 +30,9 @@ const Cart = () => {
                     </Link>
                 </div>
             ) : (
-                <h3>No hay productos en el carrito</h3>
+                <div className={styles.container}><h3>No hay productos en el carrito</h3>
+                <Link className="Link" to="/">volver al inicio</Link></div>
+
             )}
         </div>
     );

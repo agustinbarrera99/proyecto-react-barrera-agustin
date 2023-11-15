@@ -1,6 +1,8 @@
 import { useState, useContext } from 'react';
 import CheckoutForm from '../checkoutform/checkoutForm';
 import { CartContext } from '../../context/cartContext';
+import { Link } from 'react-router-dom';
+import styles from './styles.module.css'
 
 const Checkout = () => {
     const { cart, precioTotal, emptyCart, createOrder } = useContext(CartContext);
@@ -81,8 +83,9 @@ const Checkout = () => {
     return (
         <div>
             {orderInfo ? (
-                <div>
+                <div className={styles.container}>
                     <h3>Orden generada con éxito, el ID de su orden es: {orderInfo.orderId}. Gracias por su compra</h3>
+                    <Link className="Link" to="/">volver al inicio</Link>
                 </div>
             ) : (
                 <div>
@@ -94,7 +97,7 @@ const Checkout = () => {
                     handleSubmit={handleSubmit}
                     orderInfo={orderInfo}
                 />
-                {cartEmptyError && <p>El carrito está vacío. Por favor, agregue productos.</p>}
+                {cartEmptyError && <p>No hay productos en el carrito</p>}
                 </div>
             )}
         </div>
