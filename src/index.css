@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(114, 114, 114, 0.87);
+  color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
@@ -20,7 +20,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #eee1e1;
+  background-color: #ffffff;
 }
 
 
@@ -65,4 +65,10 @@ button:hover {
   color: #242424;
 }
 
+label {
+  color: #ff6600;
+}
 
+input {
+  color: #ff6600;
+}

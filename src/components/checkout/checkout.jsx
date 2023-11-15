@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './styles.module.css';
+import CheckoutForm from '../checkoutform/checkoutForm';
 import { CartContext } from '../../context/cartContext';
 
 const Checkout = () => {
@@ -10,16 +9,27 @@ const Checkout = () => {
         telefono: '',
         email: '',
         confirmarEmail: '',
+        cart: cart,
+        precioTotal: precioTotal()
     });
     const [validationErrors, setValidationErrors] = useState({});
     const [orderInfo, setOrderInfo] = useState(null);
     const [orderAttempted, setOrderAttempted] = useState(false);
+    const [cartEmptyError, setCartEmptyError] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        let updatedValue = value;
+
+        if (name === 'nombre') {
+            updatedValue = value.replace(/\d/g, ''); 
+        } else if (name === 'telefono') {
+            updatedValue = value.replace(/\D/g, '');
+        }
+
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value,
+            [name]: updatedValue,
         }));
     };
 
@@ -48,6 +58,11 @@ const Checkout = () => {
         e.preventDefault();
         setOrderAttempted(true);
 
+        if (cart.length === 0) {
+            setCartEmptyError(true);
+            return;
+        }
+
         if (!validateForm()) {
             console.error('Error en la validación del formulario.');
             return;
@@ -63,69 +78,23 @@ const Checkout = () => {
         }
     };
 
-    const renderOrderInfo = () => {
-        if (!orderInfo) {
-            return null;
-        }
-        return (
-            <div>
-                <h3>Orden generada con éxito, el ID de su orden es: {orderInfo.orderId}. Gracoas por su compra</h3>
-                <Link to="/" className="Link">
-                    Volver al Inicio
-                </Link>
-            </div>
-        );
-    };
-
     return (
-        <div className={styles.checkoutContainer}>
-            <h2 className={styles.checkoutTitle}>Checkout</h2>
+        <div>
             {orderInfo ? (
-                renderOrderInfo()
+                <div>
+                    <h3>Orden generada con éxito, el ID de su orden es: {orderInfo.orderId}. Gracias por su compra</h3>
+                </div>
             ) : (
                 <div>
-                    <div className={styles.orderSummary}>
-                        <h3>Resumen de la Orden</h3>
-                        <ul>
-                            {cart.map((product) => (
-                                <li key={product.id}>
-                                    {product.title} - Cantidad: {product.cantidad}
-                                </li>
-                            ))}
-                        </ul>
-                        <p>Total: ${precioTotal()}</p>
-                    </div>
-                    <form className={styles.checkoutForm} onSubmit={handleSubmit}>
-                        <label>
-                            Nombre:
-                            <input placeholder='Ingrese su nombre' type="text" name="nombre" value={formData.nombre} onChange={handleChange} required />
-                            {orderAttempted && validationErrors.nombre && (
-                                <span className={styles.error}>{validationErrors.nombre}</span>
-                            )}
-                        </label>
-                        <label>
-                            Teléfono:
-                            <input placeholder='Ingrese su teléfono' type="tel" name="telefono" value={formData.telefono} onChange={handleChange} required />
-                            {orderAttempted && validationErrors.telefono && (
-                                <span className={styles.error}>{validationErrors.telefono}</span>
-                            )}
-                        </label>
-                        <label>
-                            Email:
-                            <input placeholder='Ingrese su email' type="email" name="email" value={formData.email} onChange={handleChange} required />
-                            {orderAttempted && validationErrors.email && (
-                                <span className={styles.error}>{validationErrors.email}</span>
-                            )}
-                        </label>
-                        <label>
-                            Confirmar Email:
-                            <input placeholder='Confirme su email' type="email" name="confirmarEmail" value={formData.confirmarEmail} onChange={handleChange} required />
-                            {orderAttempted && validationErrors.confirmarEmail && (
-                                <span className={styles.error}>{validationErrors.confirmarEmail}</span>
-                            )}
-                        </label>
-                        <button type="submit">Realizar Pedido</button>
-                    </form>
+                <CheckoutForm
+                    formData={formData}
+                    validationErrors={validationErrors}
+                    orderAttempted={orderAttempted}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    orderInfo={orderInfo}
+                />
+                {cartEmptyError && <p>El carrito está vacío. Por favor, agregue productos.</p>}
                 </div>
             )}
         </div>

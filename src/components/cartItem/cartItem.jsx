@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 
 const CartItem = ({ product }) => {
     const { removeFromCart, addToCart } = useContext(CartContext);
+    const subtotal = product.price * product.cantidad;
 
     return (
         <div key={product.id} className={styles.productContainer}>
@@ -11,7 +12,7 @@ const CartItem = ({ product }) => {
             <div className={styles.productDetails}>
                 <h3 className={styles.productTitle}>{product.title}</h3>
                 <p className={styles.productPrice}>Precio unitario: ${product.price}</p>
-                <p className={styles.productTotal}>Precio total: ${product.price * product.cantidad}</p>
+                <p className={styles.productTotal}>Subtotal: ${subtotal}</p>
                 <p className={styles.productQuantity}>Cantidad: {product.cantidad}</p>
                 <div className={styles.cartAcciones}>
                     <button onClick={() => removeFromCart(product.id)}>

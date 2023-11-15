@@ -9,12 +9,6 @@
     margin-bottom: 20px;
 }
 
-.productList {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .productContainer {
     display: flex;
     background-color: #fff;
@@ -22,33 +16,6 @@
     padding: 10px;
 }
 
-.productImage {
-    width: 100px;
-    height: auto;
-    margin-right: 10px;
-}
-
-.productDetails {
-    flex: 1;
-}
-
-.productTitle {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-.productPrice {
-    font-size: 14px;
-}
-
-.productTotal {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.productQuantity {
-    font-size: 14px;
-}
 
 .cartSummary {
     margin-top: 20px;
@@ -88,6 +55,5 @@
 }
 
 .cartAcciones {
-    display: flex;
-    justify-content: space-between;
+    align-items: center;
 }
