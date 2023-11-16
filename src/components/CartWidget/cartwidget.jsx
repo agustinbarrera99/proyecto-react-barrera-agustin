@@ -6,13 +6,13 @@ import {CartContext} from '../../context/cartContext';
 
 const CartWidget = () => {
 
-    const {cantidadEnCarrito} = useContext(CartContext)
+    const {quantityInCart} = useContext(CartContext)
 
     return (
         <Link to="/Cart" className={styles.botonCarrito}>
             <Button variant="transparent">
                 <i className="bi bi-bag-fill icono-carrito"></i>
-                <span className={styles.numero}>{cantidadEnCarrito()}</span>
+                <span className={styles.numero}>{quantityInCart()}</span>
             </Button>
         </Link>
     );
