@@ -14,27 +14,27 @@ const ItemDetail = ({ product }) => {
     };
 
     return (
-        <div>
+        <div className={styles.container}>
             {product && (
                 <div className={styles.card}>
                     <img className={styles.cardImagen} src={product.image} alt={product.title} />
                     <div className={styles.cardDetalles}>
                         <h3>{product.title}</h3>
                         <p className={styles.descripcion}>{product.description}</p>
-                        <p>stock: {product.stock}</p>
+                        <p>Stock: {product.stock}</p>
                         <p className={styles.precio}>${product.price}</p>
                         <ItemCount
                             contador={cantidad}
                             setContador={setCantidad}
-                            stock={product.stock} 
+                            stock={product.stock}
                         />
                         <div className={styles.acciones}>
-                        <button onClick={handleAddToCart}>
-                            Agregar al carrito
-                        </button>
-                        <Link to="/" className="Link">
-                            Volver
-                        </Link>
+                            <button onClick={handleAddToCart}>
+                                Agregar al carrito
+                            </button>
+                            <Link to="/" className="Link">
+                                Volver
+                            </Link>
                         </div>
                     </div>
                 </div>

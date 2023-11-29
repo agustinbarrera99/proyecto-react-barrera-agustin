@@ -41,9 +41,11 @@ const ItemListContainer = () => {
   }, [categoryId]);
 
   return (
-    <div className={styles.container}>
-      <h3>{categoryId ? categoryId : 'Todos los productos'}</h3>
+    <div className={styles.contenedor}>
       <div>
+      <h3 style={{display: 'flex', justifyContent:'center', marginTop:'40px'}} >{categoryId ? categoryId : 'Todos los productos'}</h3>
+      </div>
+      <div className={styles.container}>
         <Loader loading={loading} />
         {products.length === 0 && !loading && (
           <div>

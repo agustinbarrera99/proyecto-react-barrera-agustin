@@ -7,7 +7,7 @@ const CartItem = ({ product }) => {
     const subtotal = product.price * product.cantidad;
 
     return (
-        <div key={product.id} className={styles.productContainer}>
+        <div className={styles.productContainer}>
             <img src={product.image} alt={product.title} className={styles.productImage} />
             <div className={styles.productDetails}>
                 <h3 className={styles.productTitle}>{product.title}</h3>

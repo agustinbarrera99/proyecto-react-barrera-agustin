@@ -22,17 +22,22 @@ const Cart = () => {
             {cart.length > 0 ? (
                 <div className={styles.cartSummary}>
                     <h2 className={styles.total}>Total: ${precioTotal()}</h2>
-                    <button onClick={handleEmptyCart}>
-                        Vaciar carrito
-                    </button>
-                    <Link to="/checkout" className="Link">
-                        Finalizar compra
-                    </Link>
+                    <div className={styles.buttonsContainer}>
+                        <button onClick={handleEmptyCart}>
+                            Vaciar carrito
+                        </button>
+                        <Link to="/checkout" className="Link">
+                            Finalizar compra
+                        </Link>
+                    </div>
                 </div>
             ) : (
-                <div className={styles.container}><h3>No hay productos en el carrito</h3>
-                <Link className="Link" to="/">volver al inicio</Link></div>
-
+                <div className={styles.emptyCart}>
+                    <h3>No hay productos en el carrito</h3>
+                    <Link className="Link"to="/">
+                        Volver al inicio
+                    </Link>
+                </div>
             )}
         </div>
     );
